@@ -193,6 +193,38 @@ public class AffineTransform extends Transform
 		this.eps = eps;
 	}
 
+	/**
+	 * calculates the standard deviation for the transformation. Note that the number
+	 * of id-point must be > 3; otherwise the return-value will be 0.
+	 * 
+	 * @return Standard deviation
+	 */
+	public double standardDeviation() 
+	{
+		int N = from.length;
+		if (N <= 3)
+			return 0.;
+
+		double sum = 0.;
+		for (int i = 0; i < N; i++) {
+			Point u = transform(from[i]);
+			double vx = to[i].x - u.x;
+			double vy = to[i].y - u.y;
+			sum += (vx * vx) + (vy * vy);
+		}
+		
+		double s;
+		if (this instanceof HelmertTransform || this.helmert) 
+		{
+			s = Math.sqrt(sum / (2 * N - 4));
+		} 
+		else { // 6-parameter affine
+			s = Math.sqrt(sum / (2 * N - 6));
+		}
+			
+		return s;
+	}
+	
 	public String toString() 
 	{
 		double mx = Math.sqrt(D * D + A * A);
