@@ -11,6 +11,8 @@ import main.Point;
  *	y' = D x + E y + F<br/>
  * </tt>
  *
+ * With <tt>A = E<tt> and </tt>B = -D</tt>, this is a 4-parameter transformation.<br/>
+ * 
  * At least 3 pairs of identical points (id-points) must be given in the 
  * constructor. The point <tt>from[i]</tt> given in the source coordinate-system 
  * corresponds to the point <tt>to[i]</tt> in the target coordinate-system for 
