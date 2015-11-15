@@ -80,9 +80,10 @@ public class DemoApp {
 				new Point(0.1, 0),  
 				new Point(-5., -0.1)};
 		
-		Transform t = new HelmertTransform(from, to);
+		HelmertTransform t = new HelmertTransform(from, to);
 		System.out.println(t);
 		System.out.println(new ResidualMismatches(t));
+		System.out.println("Standard deviation: " + t.standardDeviation());
 
 		System.out.println(t.transform( 
 				new Point(-2.5, -2.5)));
