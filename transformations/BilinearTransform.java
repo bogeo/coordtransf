@@ -9,7 +9,7 @@ import main.Transform;
  * will be no residual mismatches ("4-point-transformation"). 
  *  
  * <tt><br/>
- *	x' = A x + B y + c x y + D<br/>
+ *	x' = A x + B y + C x y + D<br/>
  *	y' = E x + F y + G x y + H<br/>
  * </tt>
  *
