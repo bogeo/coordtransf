@@ -27,8 +27,9 @@ public class ResidualMismatches
 		{
 			Point u = t.transform(t.from[i]);
 			double vx = t.to[i].x - u.x;
-		    double vy = t.to[i].y - u.y;
-			str.append(t.from[i] + " -> " + u + ": (" + vx + ", " + vy + "), delta = " + Math.sqrt(vx * vx + vy * vy) + "\n");			
+			double vy = t.to[i].y - u.y;
+			str.append(t.from[i] + " -> " + u + ": (" 
+				+ vx + ", " + vy + "), delta = " + Math.sqrt(vx * vx + vy * vy) + "\n");			
 		}
 		
 		return str.toString();
