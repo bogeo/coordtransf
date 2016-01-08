@@ -103,13 +103,20 @@ public class DemoApp {
 				new Point(200., 150.),  
 				new Point(100., 150.)};
 		
-		Transform t = new BilinearTransform(from, to);
-		System.out.println(t);
-		System.out.println(new ResidualMismatches(t));
+		Transform[] t = new Transform[2];
+		t[0] = new BilinearTransform(from, to);
+		t[1] = new PerspectiveTransform(from, to);
 
-		System.out.println(t.transform( 
-				new Point(18., 14.75)));
-		System.out.println(t.transform( 
-				new Point(11.25, 11.)));
+		for (int i = 0; i < 2; i++) {
+			System.out.println(t[i]);
+			System.out.println(new ResidualMismatches(t[i]));
+
+			System.out.println(t[i].transform( 
+					new Point(18., 14.75)));
+			System.out.println(t[i].transform( 
+					new Point(11.25, 11.)));
+
+			System.out.println();
+		}
 	}
 }
